@@ -6,6 +6,7 @@ WORKDIR /app
 
 #for installing packages
 COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 #copy all the codes to of the application to google cloud
