@@ -26,14 +26,14 @@ jobs:
 
     - name: Build and Push Docker Image
       run: |-
-        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/flask-app:${{ github.sha }} .
-        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/flask-app:${{ github.sha }}
+        # Naya path: region-docker.pkg.dev/project-id/repo-name/image-name
+        docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/flask-repo/flask-app:${{ github.sha }} .
+        docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/flask-repo/flask-app:${{ github.sha }}
 
     - name: Deploy to Cloud Run
       run: |-
         gcloud run deploy flask-app \
-          --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/flask-app:${{ github.sha }} \
+          --image us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/flask-repo/flask-app:${{ github.sha }} \
           --region us-central1 \
           --platform managed \
           --allow-unauthenticated
-
