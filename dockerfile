@@ -1,5 +1,5 @@
 #Using python image
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 #used to tell the working directory
 WORKDIR /app
