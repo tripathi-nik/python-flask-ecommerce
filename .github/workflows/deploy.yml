@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{github.ref == 'ref/heads/main' && 'production'}}
 
     steps:
     - name: Checkout code
@@ -38,3 +39,9 @@ jobs:
           --region us-central1 \
           --platform managed \
           --allow-unauthenticated
+          --set-env-vars "
+            MYSQL_DB=${{secrets.MYSQL_DB}},
+            MYSQL_HOST=${{secrets.MYSQL_HOST}},
+            MYSQL_PASSWORD=${{secrets.MYSQL_PASSWORD}},
+            MYSQL_USER=${{secrets.MYSQL_USER}}
+          "
