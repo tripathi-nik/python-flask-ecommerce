@@ -38,5 +38,5 @@ jobs:
           --image us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/flask-repo/flask-app:${{ github.sha }} \
           --region us-central1 \
           --platform managed \
-          --allow-unauthenticated
+          --allow-unauthenticated \
           --set-env-vars "MYSQL_DB=${{secrets.MYSQL_DB}},MYSQL_HOST=${{secrets.MYSQL_HOST}},MYSQL_PASSWORD=${{secrets.MYSQL_PASSWORD}},MYSQL_USER=${{secrets.MYSQL_USER}}"
