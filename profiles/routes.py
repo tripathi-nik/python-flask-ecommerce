@@ -1,7 +1,7 @@
 from profiles import profile
 from modal.modals import Profile, Addr
 from flask import request, jsonify
-from modal.database import db
+from modal.database import db, MYSQL_DB, MYSQL_PASSWORD, MYSQL_USER, MYSQL_HOST
 from datetime import datetime
 import bcrypt
 from flask_login import login_user
@@ -9,7 +9,13 @@ from flask_login import login_user
 
 @profile.route("/welcome", methods=["GET"])
 def welcome_result():
-    return "hello welcomes you"
+    return jsonify({
+        "message":"hello welcomes you",
+        "db":MYSQL_DB,
+        "user":MYSQL_USER,
+        "password":MYSQL_PASSWORD,
+        "host":MYSQL_HOST
+    })
 
 
 @profile.route('/create', methods=['POST'])
