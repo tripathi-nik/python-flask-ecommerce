@@ -2,7 +2,7 @@ from flask import Flask
 # from products import product
 # from orders import order
 from profiles import profile
-from modal.database import db,MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DB
+from modal.database import db,MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DB,MYSQL_INSTANCE_CONNECTION
 from flask_login import LoginManager
 from datetime import timedelta
 import os

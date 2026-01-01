@@ -39,4 +39,8 @@ jobs:
           --region us-central1 \
           --platform managed \
           --allow-unauthenticated \
-          --set-env-vars "MYSQL_DB=${{ secrets.MYSQL_DB }}, MYSQL_HOST=${{ secrets.MYSQL_HOST }}, MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}, MYSQL_USER=${{ secrets.MYSQL_USER }}"
+          --set-env-vars "MYSQL_DB=${{ secrets.MYSQL_DB }},
+          MYSQL_HOST=${{ secrets.MYSQL_HOST }},
+          MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }},
+          MYSQL_USER=${{ secrets.MYSQL_USER }},
+          MYSQL_INSTANCE_CONNECTION=${{ secrets.MYSQL_INSTANCE_CONNECTION }}"
