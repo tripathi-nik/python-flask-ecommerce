@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{github.ref == 'ref/heads/main' && 'production'}}
+    environment: production
 
     steps:
     - name: Checkout code
