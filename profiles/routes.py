@@ -1,7 +1,7 @@
 from profiles import profile
 from modal.modals import Profile, Addr
 from flask import request, jsonify
-from modal.database import db, MYSQL_DB, MYSQL_PASSWORD, MYSQL_USER, MYSQL_HOST
+from modal.database import db, MYSQL_DB, MYSQL_PASSWORD, MYSQL_USER, MYSQL_HOST, MYSQL_INSTANCE_CONNECTION
 from datetime import datetime
 import bcrypt
 from flask_login import login_user
@@ -14,7 +14,8 @@ def welcome_result():
         "db":MYSQL_DB,
         "user":MYSQL_USER,
         "password":MYSQL_PASSWORD,
-        "host":MYSQL_HOST
+        "host":MYSQL_HOST,
+        "instance":MYSQL_INSTANCE_CONNECTION
     })
 
 
